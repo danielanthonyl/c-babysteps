@@ -5,12 +5,13 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Wed Jul 13 20:28:13 2022
+# Make data base, printed on Thu Jul 14 22:54:52 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -34,13 +35,16 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_3984_QVTJJNURFRNEBHWY
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_10156_IOZDERJSUMUHSXWQ
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # automatic
-%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+%D = $(patsubst %/,%, 
+$(patsubst %\,%,$(dir $%)))
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
 # automatic
@@ -82,7 +86,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 3984
+VSCODE_PID = 10156
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # makefile (from 'Makefile', line 2)
@@ -196,7 +200,7 @@ PROCESSOR_REVISION = a701
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 167 Stepping 1, GenuineIntel
 # variable set hash-table stats:
-# Load=92/1024=9%, Rehash=0, Collisions=8/124=6%
+# Load=94/1024=9%, Rehash=0, Collisions=9/126=7%
 
 # Pattern-specific Variable Values
 
@@ -204,9 +208,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 167 Stepping 1, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/wasd/code/cfirst, mtime 1657685088): 8 files, no impossibilities.
+# . (key c:/Users/wasd/code/cfirst, mtime 1657849994): 12 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -217,7 +221,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 167 Stepping 1, GenuineIntel
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-13 20:28:12
+#  Last modified 2022-07-14 22:54:36
 #  File has been updated.
 #  Successfully updated.
 
@@ -253,7 +257,7 @@ all:
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/13=8%
 #  recipe to execute (from 'Makefile', line 4):
-	gcc ${FLAGS} ${INCLUDES} ./src/main.c -L ./lib -lmingw32 -lSDL2main -lSDL2 -o ./bin/main
+	gcc ${FLAGS} ${INCLUDES} ./src/main.c -L ./lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -o ./bin/main
 
 # Not a target:
 .SUFFIXES:
@@ -269,12 +273,13 @@ all:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 11 / storage = 65 B / avg = 5 B
-# current buf: size = 8174 B / used = 65 B / count = 11 / avg = 5 B
+# strcache buffers: 1 (0) / stri 
+ngs = 15 / storage = 97 B / avg = 6 B
+# current buf: size = 8174 B / used = 97 B / count = 15 / avg = 6 B
 
-# strcache performance: lookups = 18 / hit rate = 38%
+# strcache performance: lookups = 22 / hit rate = 31%
 # hash-table stats:
-# Load=11/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Wed Jul 13 20:28:13 2022
+# Load=15/8192=0%, Rehash=0, Collisions=0/22=0%
+# Finished Make data base on Thu Jul 14 22:54:52 2022
 
  
