@@ -7,8 +7,8 @@
 
 typedef struct
 {
-  int x;
   int y;
+  int x;
   SDL_Texture *texture;
 } Player;
 
