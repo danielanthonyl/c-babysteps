@@ -1,7 +1,8 @@
 // Example program:
 // Using SDL2 to create an application window
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <stdio.h>
 
 typedef struct
@@ -33,15 +34,8 @@ SDL_Texture *loadTexture(char *filename)
 
 int main(int argc, char *argv[])
 {
-  player.x = 100;
-  player.y = 100;
-  player.texture = loadTexture("./player.png");
-
-  // SDL_Window *window; // Declare a pointer
-
   SDL_Init(SDL_INIT_VIDEO); // Initialize SDL2
-
-  // Create an application window with the following settings:
+  IMG_Init(IMG_INIT_PNG);   // Initialize SDL2_image
 
   app.window = SDL_CreateWindow(
       "An SDL2 window",        // window title
@@ -52,6 +46,15 @@ int main(int argc, char *argv[])
       SDL_RENDERER_ACCELERATED // flags - see below
   );
 
+  app.renderer = SDL_CreateRenderer(app.window, -1, SDL_RENDERER_ACCELERATED);
+  player.x = 100;
+  player.y = 100;
+  player.texture = loadTexture("./player.png");
+
+  // SDL_Window *window; // Declare a pointer
+
+  // Create an application window with the following settings:
+
   // Check that the window was successfully created
   if (app.window == NULL)
   {
@@ -60,21 +63,20 @@ int main(int argc, char *argv[])
     return 1;
   }
 
-  app.renderer = SDL_CreateRenderer(app.window, -1, SDL_RENDERER_ACCELERATED);
-
   // The window is open: could enter program loop here (see SDL_PollEvent())
   while (app.window)
   {
-    SDL_SetRenderDrawColor(app.renderer, 250, 195, 235, 255);
     SDL_RenderClear(app.renderer);
+    SDL_SetRenderDrawColor(app.renderer, 250, 195, 235, 255);
+    SDL_RenderCopy(app.renderer, player.texture, NULL, NULL);
     SDL_RenderPresent(app.renderer);
 
-    // SDL_Event event;
+    SDL_Event event;
 
-    // while (SDL_PollEvent(&event))
-    // { // poll until all events are handled!
-    //   // decide what to do with this event.
-    // }
+    while (SDL_PollEvent(&event))
+    { // poll until all events are handled!
+      // decide what to do with this event.
+    }
 
     // update game state, draw the current frame
   }
